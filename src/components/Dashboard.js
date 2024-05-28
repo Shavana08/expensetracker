@@ -18,30 +18,6 @@ import { unparse } from "papaparse";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
-
-  // const sampleTransactions = [
-  // {
-  //   name: "Pay day",
-  //   type: "income",
-  //   date: "2023-01-15",
-  //   amount: 2000,
-  //   tag: "salary",
-  // },
-  // {
-  //   name: "Dinner",
-  //   type: "expense",
-  //   date: "2023-01-20",
-  //   amount: 500,
-  //   tag: "food",
-  // },
-  // {
-  //   name: "Books",
-  //   type: "expense",
-  //   date: "2023-01-25",
-  //   amount: 300,
-  //   tag: "education",
-  // },
-  // ];
   const [isExpenseModalVisible, setIsExpenseModalVisible] = useState(false);
   const [isIncomeModalVisible, setIsIncomeModalVisible] = useState(false);
   const [transactions, setTransactions] = useState([]);
@@ -119,6 +95,8 @@ const Dashboard = () => {
       amount: parseFloat(values.amount),
       tag: values.tag,
       name: values.name,
+      frequency: values.frequency, 
+      method: values.method 
     };
 
     setTransactions([...transactions, newTransaction]);
@@ -167,6 +145,7 @@ const Dashboard = () => {
       }
     }
   }
+  
 
   async function fetchTransactions() {
     setLoading(true);
@@ -209,7 +188,7 @@ const Dashboard = () => {
 
   function exportToCsv() {
     const csv = unparse(transactions, {
-      fields: ["name", "type", "date", "amount", "tag"],
+      fields: ["name", "type", "date", "amount", "tag","method","frequency"],
     });
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);

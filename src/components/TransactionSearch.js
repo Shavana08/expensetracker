@@ -72,6 +72,16 @@ const TransactionSearch = ({
       dataIndex: "tag",
       key: "tag",
     },
+    {
+      title: "Method",
+      dataIndex: "method",
+      key: "method",
+    },
+    {
+      title: "Frequency",
+      dataIndex: "frequency",
+      key: "frequency",
+    }
   ];
 
   const filteredTransactions = transactions.filter((transaction) => {
@@ -135,16 +145,6 @@ const TransactionSearch = ({
         </Select>
       </div>
 
-      {/* <Select
-        style={{ width: 200, marginRight: 10 }}
-        onChange={(value) => setSelectedTag(value)}
-        placeholder="Filter by tag"
-        allowClear
-      >
-        <Option value="food">Food</Option>
-        <Option value="education">Education</Option>
-        <Option value="office">Office</Option>
-      </Select> */}
       <div className="my-table">
         <div
           style={{

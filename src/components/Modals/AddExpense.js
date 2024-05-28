@@ -73,9 +73,36 @@ function AddExpenseModal({
         >
           <Select className="select-input-2">
             <Select.Option value="food">Food</Select.Option>
-            <Select.Option value="education">Education</Select.Option>
-            <Select.Option value="office">Office</Select.Option>
+            <Select.Option value="housing">Housing</Select.Option>
+            <Select.Option value="transportation">Transportation</Select.Option>
+            <Select.Option value="entertainment">Entertainment</Select.Option>
+            <Select.Option value="other">Other</Select.Option>
             {/* Add more tags here */}
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Method"
+          name="method"
+          style={{ fontWeight: 600 }}
+          rules={[{ required: true, message: "Choose Payment Method" }]}
+        >
+          <Select className="select-input-3">
+            <Select.Option value="credit">Credit Card</Select.Option>
+            <Select.Option value="debit">Debit Card</Select.Option>
+            <Select.Option value="cash">Cash</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Frequency"
+          name="frequency"
+          style={{ fontWeight: 600 }}
+          rules={[{ required: true, message: "Choose Frequency of Payment" }]}
+        >
+          <Select className="select-input-4">
+            <Select.Option value="daily">Daily</Select.Option>
+            <Select.Option value="weekly">Weekly</Select.Option>
+            <Select.Option value="monthly">Monthly</Select.Option>
+            <Select.Option value="yearly">Yearly</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item>

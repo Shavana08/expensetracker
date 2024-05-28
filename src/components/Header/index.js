@@ -22,9 +22,9 @@ function Header() {
 
   return (
     <div className="navbar">
-      <p className="navbar-heading">Financly.</p>
+      <p className="font-bold text-2xl text-white">Expense Tracker</p>
       {user ? (
-        <p className="navbar-link" onClick={logout}>
+        <p className="navbar-link flex items-center" onClick={logout}>
           <span style={{ marginRight: "1rem" }}>
             <img
               src={user.photoURL ? user.photoURL : userSvg}
